@@ -5,22 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApplication1.Data
 {
-    public class WebApplication1Context : IdentityDbContext<IdentityUser>
+    public class WebApplication1Context : IdentityUser
     {
-        public WebApplication1Context(DbContextOptions<WebApplication1Context> options)
-            : base(options)
-        {
-        }
+            [PersonalData]
+            [Column(TypeName = "nvarchar(100)")]
+            public string FirstName { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
-        }
+            [PersonalData]
+            [Column(TypeName = "nvarchar(100)")]
+            public string LastName { get; set; }
     }
 }

@@ -8,8 +8,9 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Cryptography.X509Certificates;
 
-namespace WebApplication1.Data
+namespace WebApplication1.Areas.Identity.Pages
 {
     public class ApplicationDbContext : IdentityDbContext
     {
